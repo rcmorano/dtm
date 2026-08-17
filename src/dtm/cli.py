@@ -15,8 +15,14 @@ import argparse
 import sys
 from pathlib import Path
 
-import torch
-from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
+try:
+    import torch
+    from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
+except ImportError as _exc:  # pragma: no cover
+    raise ImportError(
+        "torch and transformers are required for conversion. "
+        "Install them with: pip install 'dtm[inference]'"
+    ) from _exc
 
 from .config_utils import build_output_config, infer_moe_spec, save_json
 from .weight_mapping import map_state_dict_to_moe

@@ -1,10 +1,11 @@
 """Tests for weight_mapping helpers."""
 
 import pytest
-import torch
 
-from dtm.config_utils import MoeSpec
-from dtm.weight_mapping import (
+torch = pytest.importorskip("torch", reason="torch not installed")
+
+from dtm.config_utils import MoeSpec  # noqa: E402
+from dtm.weight_mapping import (  # noqa: E402
     is_ffn_weight,
     layer_index_from_name,
     map_state_dict_to_moe,

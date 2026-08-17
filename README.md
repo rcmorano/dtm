@@ -11,7 +11,14 @@ existing Qwen MoE model as the architectural template.
 ## Installation
 
 ```bash
-pip install -e ".[dev]"   # editable install with test dependencies
+# Core package only (no heavy ML deps – suitable for CI / config tooling):
+pip install -e .
+
+# Full runtime (needed to actually run conversions):
+pip install -e ".[inference]"
+
+# Development (tests + torch):
+pip install -e ".[dev]"
 ```
 
 ## Usage

@@ -13,7 +13,13 @@ from __future__ import annotations
 import math
 from typing import Dict, List, Set
 
-import torch
+try:
+    import torch
+except ImportError as _exc:  # pragma: no cover
+    raise ImportError(
+        "torch is required for weight mapping. "
+        "Install it with: pip install 'dtm[inference]'"
+    ) from _exc
 
 from .config_utils import MoeSpec, select_moe_layers
 
