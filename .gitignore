@@ -21,3 +21,5 @@ htmlcov/
 .vscode/
 .idea/
 *.swp
+
+.ssh
